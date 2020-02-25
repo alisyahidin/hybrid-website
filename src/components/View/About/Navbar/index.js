@@ -47,53 +47,66 @@ const NavbarWrapper = styled.nav`
     }
     .scrollspy__menu {
         float: right;
-        a {
-            position: relative;
-            display: block;
-            transform: translateX(calc(100% - 40px));
-            line-height: 40px;
-            padding: 0 1.0625em;
-            white-space: nowrap;
-            font-size: 1em;
-            pointer-events: auto;
-            transition: background 0.4s cubic-bezier(0.77, 0, 0.175, 1),
-                color 0.4s cubic-bezier(0.77, 0, 0.175, 1),
-                -webkit-transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
-            transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1),
-                background 0.4s cubic-bezier(0.77, 0, 0.175, 1),
-                color 0.4s cubic-bezier(0.77, 0, 0.175, 1);
-            transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1),
-                background 0.4s cubic-bezier(0.77, 0, 0.175, 1),
-                color 0.4s cubic-bezier(0.77, 0, 0.175, 1),
-                -webkit-transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
-            text-decoration: none;
-            color: white;
-            box-sizing: border-box;
+        list-style: none;
+        li {
+            a {
+                position: relative;
+                display: block;
+                transform: translateX(calc(100% - 40px));
+                line-height: 40px;
+                padding: 0 1.0625em;
+                white-space: nowrap;
+                font-size: 1em;
+                pointer-events: auto;
+                transition: background 0.4s cubic-bezier(0.77, 0, 0.175, 1),
+                    color 0.4s cubic-bezier(0.77, 0, 0.175, 1),
+                    -webkit-transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+                transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1),
+                    background 0.4s cubic-bezier(0.77, 0, 0.175, 1),
+                    color 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+                transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1),
+                    background 0.4s cubic-bezier(0.77, 0, 0.175, 1),
+                    color 0.4s cubic-bezier(0.77, 0, 0.175, 1),
+                    -webkit-transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+                text-decoration: none;
+                color: white;
+                box-sizing: border-box;
 
-            &.is-active,
-            :hover {
-                color: #000;
-                background: #fff;
-                transform: translateX(0);
-                transition-duration: 0.7s;
-                transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
                 .scrollspy__menu__ticker {
                     span,
                     i {
-                        opacity: 1;
-                        transition-duration: 0.7s;
-                        transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+                        opacity: 0;
+                        transition: opacity 0.4s cubic-bezier(0.42, 0, 1, 1);
+                        font-size: 0.875em;
+                        line-height: 2.8571428571em;
+                        letter-spacing: 2px;
                     }
                 }
             }
-            .scrollspy__menu__ticker {
-                span,
-                i {
-                    opacity: 0;
-                    transition: opacity 0.4s cubic-bezier(0.42, 0, 1, 1);
-                    font-size: 0.875em;
-                    line-height: 2.8571428571em;
-                    letter-spacing: 2px;
+            hr {
+                width: 6px;
+                background: #fff;
+                opacity: 0.5;
+                margin: 0px 17px 0 auto;
+                border-width: 0px;
+                height: 1px;
+            }
+            &.is-active,
+            :hover {
+                a {
+                    color: #000;
+                    background: #fff;
+                    transform: translateX(0);
+                    transition-duration: 0.7s;
+                    transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+                    .scrollspy__menu__ticker {
+                        span,
+                        i {
+                            opacity: 1;
+                            transition-duration: 0.7s;
+                            transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+                        }
+                    }
                 }
             }
         }
