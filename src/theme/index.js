@@ -1,41 +1,29 @@
 import colors from './colors'
+const breakpoints = {
+    xs: 576,
+    sm: 768,
+    md: 991,
+    lg: 1220,
+}
+const devices = Object.keys(breakpoints).reduce((a, b) => {
+    a[b] = `(max-width: ${breakpoints[b]}px)`
+    return a
+}, {})
+const loop = (startNumber, maxNumber, increment) => {
+    let ret = []
+    for (let i = startNumber; i <= maxNumber; i += increment) {
+        ret = [...ret, i]
+    }
+    return ret
+}
 
 export const theme = {
-    breakpoints: [576, 768, 991, 1220],
-    space: [
-        0,
-        4,
-        8,
-        12,
-        16,
-        20,
-        24,
-        28,
-        32,
-        36,
-        40,
-        48,
-        52,
-        56,
-        60,
-        64,
-        68,
-        72,
-        76,
-        80,
-        84,
-        88,
-        92,
-        96,
-        100,
-    ],
-    fontSizes: [10, 12, 14, 15, 16, 18, 20, 22, 24, 36, 48, 80, 96],
-    fontWeights: [100, 200, 300, 400, 500, 600, 700, 800, 900],
-    lineHeights: {
-        solid: 1,
-        title: 1.25,
-        copy: 1.5,
-    },
+    breakpoints: { ...breakpoints },
+    devices: { ...devices },
+    space: loop(0, 100, 4),
+    fontSizes: loop(8, 96, 2),
+    fontWeights: loop(100, 900),
+    lineHeights: loop(8, 96, 2),
     letterSpacings: {
         normal: 'normal',
         tracked: '0.1em',

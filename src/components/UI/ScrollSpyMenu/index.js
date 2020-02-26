@@ -1,7 +1,7 @@
 import React, { Fragment, useContext } from 'react'
 import PropTypes from 'prop-types'
 import Scrollspy from 'react-scrollspy'
-import AnchorLink from 'react-anchor-link-smooth-scroll'
+import AnchorLink from './AnchorLink'
 import Link from 'next/link'
 import { DrawerContext } from '../../../contexts/DrawerContext'
 
@@ -29,43 +29,41 @@ const ScrollSpyMenu = ({ className, menuItems, drawerClose, ...props }) => {
             drawerClose={drawerClose}
             {...props}
         >
-            {menuItems.map((menu, index) => {
-                return (
-                    <li key={index}>
-                        {menu.staticLink ? (
-                            <Link href={menu.path} key={index}>
-                                <a>
-                                    <em>{index + 1}</em>
-                                    <i> · </i>
-                                    <span>{menu.label}</span>
-                                </a>
-                            </Link>
-                        ) : drawerClose ? (
-                            <AnchorLink
-                                key={index}
-                                href={menu.path}
-                                offset={menu.offset}
-                                onClick={toggleDrawer}
-                            >
-                                <span className="scrollspy__menu__ticker">
-                                    <em>{index + 1}</em>
-                                    <i> · </i>
-                                    <span>{menu.label}</span>
-                                </span>
-                            </AnchorLink>
-                        ) : (
-                            <AnchorLink key={index} href={menu.path} offset={menu.offset}>
-                                <span className="scrollspy__menu__ticker">
-                                    <em>{index + 1}</em>
-                                    <i> · </i>
-                                    <span>{menu.label}</span>
-                                </span>
-                            </AnchorLink>
-                                )}
-                        <hr />
-                    </li>
-                )
-            })}
+            {menuItems.map((menu, index) => (
+                <li key={index}>
+                    {menu.staticLink ? (
+                        <Link href={menu.path} key={index}>
+                            <a>
+                                <em>{index + 1}</em>
+                                <i> · </i>
+                                <span>{menu.label}</span>
+                            </a>
+                        </Link>
+                    ) : drawerClose ? (
+                        <AnchorLink
+                            key={index}
+                            href={menu.path}
+                            offset={menu.offset}
+                            onClick={toggleDrawer}
+                        >
+                            <span className="scrollspy__menu__ticker">
+                                <em>{index + 1}</em>
+                                <i> · </i>
+                                <span>{menu.label}</span>
+                            </span>
+                        </AnchorLink>
+                    ) : (
+                        <AnchorLink key={index} href={menu.path} offset={menu.offset}>
+                            <span className="scrollspy__menu__ticker">
+                                <em>{index + 1}</em>
+                                <i> · </i>
+                                <span>{menu.label}</span>
+                            </span>
+                        </AnchorLink>
+                    )}
+                    <hr />
+                </li>
+            ))}
         </Scrollspy>
     )
 }

@@ -1,14 +1,9 @@
 import React from 'react'
 import Head from 'next/head'
-import {
-    GlobalStyle,
-    ContentWrapper,
-    ScrollWrapper,
-} from '../components/View/About/About.style'
+import { GlobalStyle, ContentWrapper, ScrollWrapper } from '../components/View/About/About.style'
 import { DrawerProvider } from '../contexts/DrawerContext'
 import Navbar from '../components/View/About/Navbar'
-import Container from '../components/UI/Container'
-import Segment from '../components/UI/Segment'
+import { Container, Segment, Row, Col } from '../components/UI'
 const About = () => {
     return (
         <>
@@ -28,7 +23,22 @@ const About = () => {
                 <ScrollWrapper>
                     <Segment height="90vh" />
                     <Container noGutter mobileGutter className="scroll__wrapper">
-                        <Segment as="section" id="first" height={'200vh'} bg="red" />
+                        <Segment as="section" id="first" bg="red" gridRow={1}>
+                            <Row>
+                                <Col sm={6} md={3} bg="primary">
+                                    Test
+                                </Col>
+                                <Col sm={6} md={3} bg="secondary">
+                                    Test
+                                </Col>
+                                <Col sm={6} md={3} bg="primary">
+                                    Test
+                                </Col>
+                                <Col sm={6} md={3} bg="secondary">
+                                    Test
+                                </Col>
+                            </Row>
+                        </Segment>
                         <Segment as="section" id="second" height={'200vh'} bg="white" />
                         <Segment as="section" id="third" height={'200vh'} bg="primary" />
                         <Segment as="section" id="fourth" height={'200vh'} bg="secondary" />
